@@ -1,3 +1,8 @@
+import Navigation from "../components/navigation";
+
 export default function Root() {
-    return <h1>Root</h1>
+    return <div>
+        <Navigation />
+        <h1>Hello!</h1>
+    </div>
 }
