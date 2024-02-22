@@ -5,11 +5,7 @@ import { usePathname } from "next/navigation";
 
 export default function Navigation() {
     const path = usePathname();
-    console.log(path);
 
-    if (path === "/about-us/company/jobs/sales") {
-        return null
-    }
     return (
         <nav>
             <ul>
