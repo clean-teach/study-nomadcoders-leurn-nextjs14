@@ -1,25 +1,17 @@
-"use client"
+export const metadata = {
+    title: "Home",
+};
 
-import { useEffect, useState } from "react"
+const URL = "https://nomad-movies.nomadcoders.workers.dev/movies";
 
-export default function Root() {
-    const [movies, setMovies] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const getMovies = async () => {
-        const response = await fetch('https://nomad-movies.nomadcoders.workers.dev/movies');
-        const json = await response.json();
-        setMovies(json);
-        setIsLoading(false);
-    };
+async function getMovies() {
+    await new Promise((resolve) => setTimeout(resolve, 5000)); // 로딩 속도를 체감하기 위한 테스트 코드
+    const response = await fetch(URL);
+    const json = await response.json();
+    return json;
+}
 
-    useEffect(() => {
-        getMovies();
-    }, [])
-    useEffect(() => {
-        console.log(movies)
-    }, [movies])
-
-    return <div>
-        {isLoading ? 'Loading...' : JSON.stringify(movies)}
-    </div>
+export default async function RootPage() {
+    const movies = await getMovies();
+    return <div>{JSON.stringify(movies)}</div>;
 }
