@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { API_URL } from "../app/(home)/page";
 import potato from "../styles/movie-info.module.css";
 
@@ -22,6 +23,10 @@ export default async function MovieInfo({ id }: { id: string }) {
                 <a href={movie.homepage} target={"_blank"}>
                     Homepage &rarr;
                 </a>
+                <div className={potato.tab_menu}>
+                    <Link href={`/movies/${id}/detail`}>Detail</Link>
+                    <Link href={`/movies/${id}/credits`}>Credits</Link>
+                </div>
             </div>
         </div>
     );

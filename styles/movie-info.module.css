@@ -24,3 +24,14 @@
   margin-top: 20px;
   gap: 20px;
 }
+
+.tab_menu {
+  background-color: #efefef;
+  color: #333333;
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+.tab_menu > a + a {
+  margin-left: 1rem;
+}
