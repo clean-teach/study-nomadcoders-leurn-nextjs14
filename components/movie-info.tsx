@@ -26,6 +26,8 @@ export default async function MovieInfo({ id }: { id: string }) {
                 <div className={potato.tab_menu}>
                     <Link href={`/movies/${id}/detail`}>Detail</Link>
                     <Link href={`/movies/${id}/credits`}>Credits</Link>
+                    <Link href={`/movies/${id}/providers`}>Providers</Link>
+                    <Link href={`/movies/${id}/similar`}>Similar</Link>
                 </div>
             </div>
         </div>
