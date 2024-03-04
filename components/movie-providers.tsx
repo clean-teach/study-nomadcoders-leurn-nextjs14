@@ -1,4 +1,4 @@
-import { API_URL } from "../app/(home)/page";
+import { API_URL } from "../app/constants";
 import styles from "../styles/movie-proveders.module.css";
 
 export async function getMovieProviders(id: string) {
@@ -8,16 +8,19 @@ export async function getMovieProviders(id: string) {
 
 export default async function MovieProviders({ id }: { id: string }) {
     const moviesProviders = await getMovieProviders(id);
-    console.log(moviesProviders);
-    console.log(Object.keys(moviesProviders).length);
 
     return (
         <div className={styles.container}>
-            <h1>공급자</h1>
+            <dl>
+                <dt>공급자 : </dt>
+                <dd><a href={moviesProviders.US.link}>Themovie DB</a></dd>
+            </dl>
             <ul>
-                {/* {.map(provider => {
-                    <div>provider.flatrate</div>
-                })} */}
+                {moviesProviders.US.buy.map(provider =>
+                    <li key={provider.provider_id}>
+                        <img src={provider.logo_path} alt={provider.provider_name} />
+                    </li>
+                )}
             </ul>
         </div>
     );
